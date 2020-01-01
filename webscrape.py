@@ -24,7 +24,7 @@ def scrape():
         print(price[2:])    
         new_price = float(price[2:])
 
-        if(new_price > 75000):
+        if(new_price < 75000):
             notify()
 
 def notify():
