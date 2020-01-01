@@ -21,7 +21,7 @@ def scrape():
         char =[","]
         for i in char:
            price= price.replace(i,'')
-        print(price[2:])    
+        # print(price[2:])    
         new_price = float(price[2:])
 
         if(new_price < 75000):
