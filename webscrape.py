@@ -21,31 +21,27 @@ def scrape():
         char =[","]
         for i in char:
            price= price.replace(i,'')
-        # print(price[2:])    
+        print(price[2:])    
         new_price = float(price[2:])
 
-        if(new_price < 75000):
+        if(new_price > 75000):
             notify()
 
 def notify():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.elho()
+    server.ehlo()
 
-    server.login('email_from_which_mail_will_be_sent ','password')
+    server.login('from_emailid','password')##for password you need to complete the two step verification with your google account and need to get a app password for your windows computer(if error comes click on the link given in error) 
 
     subject = 'time to buy your new Laptop'
 
     body = 'GO to the link https://www.amazon.in/UX333FA-A4116T-13-3-inch-i7-8565U-Integrated-Graphics/dp/B07MLVQDF2/ref=sr_1_1?keywords=asus+zenbook+13&qid=1577877964&sr=8-1'
 
-    message = f"Subject: {subject}\n{body}"
+    message = f"Subject: {subject}\n\n{body}"
 
-    server.mail(
-        'from_email',
-        'to_email',
-        message
-    )
+    server.sendmail('from_emailid','to_emailid',message)
 
     print('Mail sent')
 
